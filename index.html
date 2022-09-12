@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Registration form</title>
+</head>
+<body>
+    <main>
+        <div class="mt-5  flex w-32  mx-auto px-4 md:container md:mx-auto flex-col jsutify-center overflow-hidden  ">
+     
+            <div class="mx-auto bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-xl p-10 jsutify-center">
+                <div><h2 class="font-bold	text-white	text-xl self-center">SIGN UP</h2></div>
+            <form action="" id="user_form" class="mx-auto py-5 flex flex-col justify-center">
+                <div class=" flex flex-col justify-center mx-auto content-around">
+                <div class="my-3">                  <label for="name" class="font-mono ">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter full name" required class="inline-block rounded-lg p-2 ml-2">
+                </div>
+                <div class="my-3">                  <label for="email" class="font-mono ">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required class="inline-block rounded-lg p-2 ml-2">
+                </div>
+                <div class="my-3">                  <label for="password" class="font-mono ">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required class="inline-block rounded-lg p-2 ml-2">
+                </div>
+                <div class="my-3">
+                    <label for="dob" class="font-mono ">Date of Birth</label>
+                <input type="date" name="dob" id="dob" placeholder="dd/mm/yyyy" required class="inline-block rounded-lg p-2 ml-2">
+                </div>
+                <div class="my-3">
+                    <label for="acceptTerms" class="font-mono ">Accept our Terms & Conditions</label>
+                <input type="checkbox" name="acceptTerms" id="acceptTerms" class="inline-block" required>
+                </div>
+                <button type="submit" class="my-3 bg-green-500 text-white hover:bg-green-400 focus:outline-none focus rounded-lg p-2 ml-2">Submit</button>
+            </div>
+            </form>
+
+        </div>
+        <div class="mt-5 mx-auto jsutify-center flex flex-col">
+            <h2 class="font-mono text-3xl	">USERS</h2>
+
+        </div>
+        <div id="display" class="mt-5 ">
+            
+      <!-- user table -->
+        </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+
+</body>
+</html>
