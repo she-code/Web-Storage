@@ -33,7 +33,7 @@ const displayRows = ()=>{
         <th class='px-3 py-3 border border-slate-700'>Accepted terms? </th>
         </tr>${contents}
     </table>`
-    let userTable = document.getElementById('display')
+    let userTable = document.getElementById('user-entries')
     userTable.innerHTML=table
     }
 // submit the form
@@ -66,7 +66,7 @@ if(difference < 18 || difference > 55){
     
     //get previos data
     users=getusers()
-    users.unshift(data)
+    users.push(data)
      // save the new data on localstorage
      localStorage.setItem('users',JSON.stringify(users));
     displayRows()
