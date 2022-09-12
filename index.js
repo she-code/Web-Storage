@@ -24,7 +24,7 @@ const displayRows = ()=>{
     return row
     
     }).join('\n')
-    const table =` <table class='table-auto w-full border-collapse border border-slate-500'>
+    const table =` <table class='table-auto w-full border-separate border border-slate-500'>
         <tr>
         <th class='px-3 py-3 border border-slate-700'>Name </th>
         <th class='px-3 py-3 border border-slate-700'>Email </th>
@@ -66,7 +66,7 @@ if(difference < 18 || difference > 55){
     
     //get previos data
     users=getusers()
-    users.push(data)
+    users.unshift(data)
      // save the new data on localstorage
      localStorage.setItem('users',JSON.stringify(users));
     displayRows()
