@@ -8,6 +8,7 @@ const getusers = () =>{
     let users = localStorage.getItem('users')
    users? users=JSON.parse(users):users=[]
     return users
+
 }
 
      // display table
@@ -76,3 +77,4 @@ if(difference < 18 || difference > 55){
 
 //on submit call submit
 form.addEventListener('submit',submit)
+displayRows()
