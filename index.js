@@ -1,25 +1,25 @@
 // gets get the data from the form 
-let form = document.getElementById('user_form');
-let users=[]
+let userForm = document.getElementById('user_form');
+let userEntries=[]
 
 
 // get data from localstorage
-const getusers = () =>{
-    let users = localStorage.getItem('users')
-   users? users=JSON.parse(users):users=[]
-    return users
+const retieveEntries = () =>{
+    let entries = localStorage.getItem('userEntries')
+   entries? entries=JSON.parse(entries):entries=[]
+    return entries
 
 }
 
      // display table
-const displayRows = ()=>{
-    let users=getusers()
-    const contents = users.map((user)=>{
-    const nameCell = `<td class='border px-4 py-2'>${user.name}</td>`
-    const emailCell = `<td class='border px-4 py-2'>${user.email}</td>`
-    const passwordCell = `<td class='border px-4 py-2'>${user.password}</td>`
-    const dobCell = `<td class='border px-4 py-2'>${user.dob}</td>`
-    const acceptTermsCell = `<td class='border px-4 py-2'>${user.acceptTerms}</td>`
+const displayEntries = ()=>{
+    let entries=retieveEntries()
+    const tbleEntries = entries.map((entry)=>{
+    const nameCell = `<td class='border px-4 py-2'>${entry.name}</td>`
+    const emailCell = `<td class='border px-4 py-2'>${entry.email}</td>`
+    const passwordCell = `<td class='border px-4 py-2'>${entry.password}</td>`
+    const dobCell = `<td class='border px-4 py-2'>${entry.dob}</td>`
+    const acceptTermsCell = `<td class='border px-4 py-2'>${entry.acceptTerms}</td>`
     const row = `<tr>${nameCell} ${emailCell} ${passwordCell} ${dobCell} ${acceptTermsCell}</tr>`
     return row
     
@@ -31,13 +31,13 @@ const displayRows = ()=>{
         <th class='px-3 py-3 border border-slate-700'>Password </th>
         <th class='px-3 py-3 border border-slate-700'>Dob </th>
         <th class='px-3 py-3 border border-slate-700'>Accepted terms? </th>
-        </tr>${contents}
+        </tr>${tbleEntries}
     </table>`
-    let userTable = document.getElementById('user-entries')
-    userTable.innerHTML=table
+    let details = document.getElementById('user-entries')
+    details.innerHTML=table
     }
 // submit the form
-const submit = (event)=>{
+const saveUserForm = (event)=>{
     //prevent default submission
 event.preventDefault();
 
@@ -56,7 +56,7 @@ if(difference < 18 || difference > 55){
 
     return
 }else{
-    let data = {
+    let entry = {
         name,
         email,
         password,
@@ -64,17 +64,17 @@ if(difference < 18 || difference > 55){
         acceptTerms
     }
     
-    //get previos data
-    users=getusers()
-    users.push(data)
+    //get previos entry
+    userEntries=retieveEntries()
+    userEntries.push(entry)
      // save the new data on localstorage
-     localStorage.setItem('users',JSON.stringify(users));
-    displayRows()
-    form.reset()
+     localStorage.setItem('userEntries',JSON.stringify(userEntries));
+    displayEntries()
+    userForm.reset()
     // console.log(users)
     }
 }
 
 //on submit call submit
-form.addEventListener('submit',submit)
-displayRows()
+userForm.addEventListener('submit',saveUserForm)
+displayEntries()
